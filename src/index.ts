@@ -9,7 +9,12 @@ const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3001;
 const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'https://smann-assessment.netlify.app/';
 
-app.use(cors({ origin: FRONTEND_ORIGIN }));
+// app.use(cors({ origin: FRONTEND_ORIGIN }));
+app.use(
+  cors({
+    origin: "*"
+  })
+);
 app.use(express.json());
 
 app.get('/health', (_req, res) => {
